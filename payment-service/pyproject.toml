@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "payment-service"
+version = "1.0.0"
+description = "Payment service integrating WeChat Pay and Alipay with idempotency protection"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "flask==2.3.3",
+    "requests==2.31.0",
+    "redis==4.6.0",
+    "pycryptodome==3.18.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==7.4.0",
+    "pytest-cov==4.1.0",
+    "faker==20.0.0",
+]

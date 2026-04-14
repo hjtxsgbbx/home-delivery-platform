@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="5.6">
+  <hashes/>
+  <testname>Payment Webhook Performance Test - 200 Concurrency</testname>
+  <booleanProperties name="Test Plan Properties" subtree="true">
+    <property name="per_thread_delay" value="0"/>
+    <property name="time_between_iter" value="0"/>
+    <property name="timezone.id" value="GMT+8"/>
+    <property name="test_type" value="load"/>
+  </booleanProperties>
+  <hashes/>
+  <listeners>
+    <ViewResultsListener test="false">
+      <label>Console Output</label>
+      <testType>true</testType>
+      <timestamp>0</timestamp>
+      <clearResultOnError>true</clearResultOnError>
+      <keepResultOnError>false</keepResultOnError>
+      <showTestError>false</showTestError>
+    </ViewResultsListener>
+    <SummaryReport test="false">
+      <label>Summary Report</label>
+      <testType>true</testType>
+      <timestamp>0</timestamp>
+      <clearResultOnError>true</clearResultOnError>
+      <keepResultOnError>false</keepResultOnError>
+    </SummaryReport>
+  </listeners>
+  <hashes/>
+  <elements>
+    <!-- Thread Group for Payment Webhook -->
+    <ThreadGroup test="true">
+      <testElement>
+        <TestPlanRef ref="0"/>
+      </testElement>
+      <collectionResult>
+        <enabled>true</enabled>
+        <filename></filename>
+        <filenameEncoding>1</filenameEncoding>
+        <delayedStart>false</delayedStart>
+        <samplerDelayingEvents>0</samplerDelayingEvents>
+      </collectionResult>
+      <scheduler>
+        <enabled>true</enabled>
+        <type>1</type>
+        <startGroup>true</startGroup>
+        <stopGroup>false</stopGroup>
+        <timeBetweenStartAndStop>-1.0E-7</timeBetweenStartAndStop>
+        <initialDelay>-1</initialDelay>
+        <duration>-1</duration>
+        <loops>1</loops>
+      </scheduler>
+      <booleanProperties name="Thread Group Properties" subtree="true">
+        <property name="loop_controller" value="false"/>
+      </booleanProperties>
+      <threadsPerSecond>0</threadsPerSecond>
+      <rampTime>-1</rampTime>
+      <numberOfThreads>200</numberOfThreads>
+      <loops>-1</loops>
+      <startDelay>1</startDelay>
+    </ThreadGroup>
+    
+    <!-- HTTP Request Defaults -->
+    <HTTPDefaults>
+      <testElement>
+        <TestPlanRef ref="0"/>
+      </testElement>
+      <booleanProperties name="HTTP Defaults" subtree="true">
+        <property name="followRedirects" value="false"/>
+        <property name="timeout" value="-1"/>
+      </booleanProperties>
+    </HTTPDefaults>
+  </elements>
+</jmeterTestPlan>

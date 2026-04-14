@@ -1,0 +1,25 @@
+# 安全扫描工具依赖包
+requests==2.31.0
+requests-html==0.10.0
+sqlmap-core>=1.6.12  # SQL 注入检测核心
+xxd==3.0.1           # 十六进制编码工具
+python-jose[cryptography]==3.3.0  # JWT 处理
+pyjwt==2.8.0         # JWT 验证
+boto3==1.34.0        # S3/云存储检测（可选）
+beautifulsoup4==4.12.2
+lxml==4.9.3          # HTML/XML解析
+paramiko==3.4.0      # SSH 连接测试
+python-nmap==1.8.0   # 端口扫描
+colorama==0.4.6      # 终端颜色输出
+tabulate==0.9.0      # 表格格式化
+
+# 报告生成工具
+jinja2==3.1.2        # HTML模板引擎
+markdown==3.5.1      # Markdown 处理
+python-docx==1.1.0    # Word 文档生成（可选）
+pandas==2.1.4        # 数据分析
+
+# 安全相关
+charset-normalizer==3.3.0
+idna==3.6            # URL 解析
+urllib3==2.1.0       # HTTP 客户端
